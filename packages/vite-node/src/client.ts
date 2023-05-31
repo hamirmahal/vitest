@@ -1,3 +1,5 @@
+/* eslint-disable antfu/no-cjs-exports */
+
 import { createRequire } from 'node:module'
 
 // we need native dirname, because windows __dirname has \\

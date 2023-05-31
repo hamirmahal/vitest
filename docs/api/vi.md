@@ -515,7 +515,6 @@ const Mock = vi.fn()
 vi.stubGlobal('IntersectionObserver', Mock)
 
 IntersectionObserver === Mock
-global.IntersectionObserver === Mock
 globalThis.IntersectionObserver === Mock
 // if you are using jsdom or happy-dom
 window.IntersectionObserver === Mock

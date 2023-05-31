@@ -24,7 +24,7 @@ export async function VitestPlugin(options: UserConfig = {}, ctx = new Vitest('t
   }
 
   return [
-    <VitePlugin>{
+    {
       name: 'vitest',
       enforce: 'pre',
       options() {
@@ -235,7 +235,7 @@ export async function VitestPlugin(options: UserConfig = {}, ctx = new Vitest('t
         if (!options.watch)
           await server.watcher.close()
       },
-    },
+    } satisfies VitePlugin,
     EnvReplacerPlugin(),
     GlobalSetupPlugin(ctx, ctx.logger),
     ...CSSEnablerPlugin(ctx),

@@ -41,7 +41,7 @@ export async function groupFilesByEnv(files: (readonly [WorkspaceProject, string
       project,
       environment: {
         name: env as VitestEnvironment,
-        options: envOptions ? { [env]: envOptions } as EnvironmentOptions : null,
+        options: envOptions ? { [env]: envOptions } satisfies EnvironmentOptions : null,
       },
     }
   }))

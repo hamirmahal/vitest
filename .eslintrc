@@ -4,6 +4,7 @@
     "no-only-tests/no-only-tests": "off",
     // prefer global Buffer to not initialize the whole module
     "n/prefer-global/buffer": "off",
+    "no-restricted-globals": "off",
     "@typescript-eslint/no-invalid-this": "off",
     "no-restricted-imports": [
       "error",
@@ -14,6 +15,12 @@
     "import/no-named-as-default": "off"
   },
   "overrides": [
+    {
+      "files": "test/**/*",
+      "rules": {
+        "@typescript-eslint/consistent-type-assertions": "off"
+      }
+    },
     {
       "files": "packages/**/*.*",
       "rules": {

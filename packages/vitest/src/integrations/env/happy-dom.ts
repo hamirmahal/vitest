@@ -2,7 +2,7 @@ import { importModule } from 'local-pkg'
 import type { Environment } from '../../types'
 import { populateGlobal } from './utils'
 
-export default <Environment>({
+export default ({
   name: 'happy-dom',
   async setup(global) {
     // happy-dom v3 introduced a breaking change to Window, but
@@ -20,4 +20,4 @@ export default <Environment>({
       },
     }
   },
-})
+}) satisfies Environment

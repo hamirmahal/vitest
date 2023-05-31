@@ -377,7 +377,7 @@ Starting from 0.23.0, you can also define custom environment. When non-builtin e
 ```ts
 import type { Environment } from 'vitest'
 
-export default <Environment>{
+export default {
   name: 'custom',
   setup() {
     // custom setup
@@ -387,7 +387,7 @@ export default <Environment>{
       }
     }
   }
-}
+} satisfies Environment
 ```
 
 Vitest also exposes `builtinEnvironments` through `vitest/environments` entry, in case you just want to extend it. You can read more about extending environments in [our guide](/guide/environment).

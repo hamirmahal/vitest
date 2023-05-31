@@ -58,10 +58,10 @@ export class ViteNodeServer {
       }
     }
     if (process.env.VITE_NODE_DEBUG_DUMP) {
-      options.debug = Object.assign(<DebuggerOptions>{
+      options.debug = Object.assign({
         dumpModules: !!process.env.VITE_NODE_DEBUG_DUMP,
         loadDumppedModules: process.env.VITE_NODE_DEBUG_DUMP === 'load',
-      }, options.debug ?? {})
+      } as DebuggerOptions, options.debug ?? {})
     }
     if (options.debug)
       this.debugger = new Debugger(server.config.root, options.debug!)

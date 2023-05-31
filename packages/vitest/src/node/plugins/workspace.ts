@@ -17,7 +17,7 @@ interface WorkspaceOptions extends UserWorkspaceConfig {
 }
 
 export function WorkspaceVitestPlugin(project: WorkspaceProject, options: WorkspaceOptions) {
-  return <VitePlugin[]>[
+  return [
     {
       name: 'vitest:project',
       enforce: 'pre',
@@ -140,5 +140,5 @@ export function WorkspaceVitestPlugin(project: WorkspaceProject, options: Worksp
     CoverageTransform(project.ctx),
     GlobalSetupPlugin(project, project.ctx.logger),
     MocksPlugin(),
-  ]
+  ] as VitePlugin[]
 }

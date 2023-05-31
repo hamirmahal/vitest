@@ -43,10 +43,10 @@ function stringifyRegex(input: RegExp | string): string {
 function getTestConfig(ctx: WorkspaceProject): ResolvedConfig {
   const config = ctx.getSerializableConfig()
   // v8 serialize does not support regex
-  return <ResolvedConfig>{
+  return {
     ...config,
     testNamePattern: config.testNamePattern
-      ? stringifyRegex(config.testNamePattern)
+      ? stringifyRegex(config.testNamePattern) as any
       : undefined,
   }
 }

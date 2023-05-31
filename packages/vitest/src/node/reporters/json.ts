@@ -94,7 +94,7 @@ export class JsonReporter implements Reporter {
         startTime = this.start
 
       const endTime = tests.reduce((prev, next) => Math.max(prev, (next.result?.startTime ?? 0) + (next.result?.duration ?? 0)), startTime)
-      const assertionResults = await Promise.all(tests.map(async (t) => {
+      const assertionResults = await Promise.all(tests.map<Promise<FormattedAssertionResult>>(async (t) => {
         const ancestorTitles = [] as string[]
         let iter: Suite | undefined = t.suite
         while (iter) {
@@ -111,7 +111,7 @@ export class JsonReporter implements Reporter {
           duration: t.result?.duration,
           failureMessages: t.result?.errors?.map(e => e.message) || [],
           location: await this.getFailureLocation(t),
-        } as FormattedAssertionResult
+        }
       }))
 
       if (tests.some(t => t.result?.state === 'run')) {

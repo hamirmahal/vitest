@@ -26,7 +26,7 @@ function catchWindowErrors(window: Window) {
   }
 }
 
-export default <Environment>({
+export default ({
   name: 'jsdom',
   async setup(global, { jsdom = {} }) {
     const {
@@ -77,4 +77,4 @@ export default <Environment>({
       },
     }
   },
-})
+}) satisfies Environment

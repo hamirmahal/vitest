@@ -307,7 +307,7 @@ function CallSiteToString(this: CallSite) {
 }
 
 function cloneCallSite(frame: CallSite) {
-  const object = {} as CallSite
+  const object = {} as any as CallSite
   Object.getOwnPropertyNames(Object.getPrototypeOf(frame)).forEach((name) => {
     const key = name as keyof CallSite
     // @ts-expect-error difficult to type

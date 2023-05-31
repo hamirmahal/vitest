@@ -95,8 +95,8 @@ export function createColors(isTTY = false): Colors {
   // based on "https://github.com/alexeyraspopov/picocolors", but browser-friendly
   const colorsObject = {
     isColorSupported: enabled,
-    reset: enabled ? (s: string) => `\x1B[0m${s}\x1B[0m` : string,
-  } as Colors
+    reset: enabled ? (s: unknown) => `\x1B[0m${s}\x1B[0m` : string,
+  } as any as Colors
 
   for (const [name, formatterArgs] of colorsEntries) {
     colorsObject[name as ColorName] = enabled

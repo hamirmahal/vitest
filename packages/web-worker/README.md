@@ -58,14 +58,14 @@ It accepts options:
 
 ## Examples
 
-```ts
+```js
 // worker.ts
 self.onmessage = (e) => {
   self.postMessage(`${e.data} world`)
 }
 ```
 
-```ts
+```js
 // worker.test.ts
 import '@vitest/web-worker'
 import MyWorker from '../worker?worker'

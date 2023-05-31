@@ -2,7 +2,7 @@ import { importModule } from 'local-pkg'
 import type { Environment } from '../../types'
 import { populateGlobal } from './utils'
 
-export default <Environment>({
+export default ({
   name: 'edge-runtime',
   async setup(global) {
     const { EdgeVM } = await importModule('@edge-runtime/vm') as typeof import('@edge-runtime/vm')
@@ -21,4 +21,4 @@ export default <Environment>({
       },
     }
   },
-})
+}) satisfies Environment

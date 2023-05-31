@@ -88,7 +88,8 @@ function createSuiteCollector(name: string, factory: SuiteFactory = () => { }, m
       retry: options?.retry,
       repeats: options?.repeats,
       meta: Object.create(null),
-    } as Omit<Test, 'context'> as Test
+      context: undefined!,
+    }
 
     if (this.concurrent || concurrent)
       test.concurrent = true

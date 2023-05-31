@@ -5,8 +5,8 @@ import type { Plugin } from 'vite'
 import { coverageConfigDefaults } from 'vitest/config'
 import type { ResolvedConfig, Vitest } from 'vitest'
 
-export default (ctx: Vitest) => {
-  return <Plugin>{
+export default (ctx: Vitest): Plugin => {
+  return {
     name: 'vitest:ui',
     apply: 'serve',
     configureServer(server) {

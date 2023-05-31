@@ -45,6 +45,7 @@ export function createStaticClient(): VitestClient {
     getTransformResult: async (id) => {
       return {
         code: id,
+        map: null,
         source: '',
       }
     },
@@ -61,7 +62,12 @@ export function createStaticClient(): VitestClient {
     createDirectory: asyncNoop,
     resolveSnapshotPath: asyncNoop,
     snapshotSaved: asyncNoop,
-  } as WebSocketHandlers
+    onAfterSuiteRun: asyncNoop,
+    onCancel: asyncNoop,
+    getCountOfFailedTests: () => 0,
+    sendLog: asyncNoop,
+    resolveSnapshotRawPath: asyncNoop,
+  } satisfies WebSocketHandlers
 
   ctx.rpc = rpc as any as BirpcReturn<WebSocketHandlers>
 

@@ -11,7 +11,7 @@ import TestReporter from '../src/custom-reporter'
 const customReporterPath = resolve(__dirname, '../src/custom-reporter.js')
 const fetchModule = {
   executeId: (id: string) => import(id),
-} as ViteNodeRunner
+} as unknown as ViteNodeRunner
 
 describe('Reporter Utils', () => {
   test('passing an empty array returns nothing', async () => {

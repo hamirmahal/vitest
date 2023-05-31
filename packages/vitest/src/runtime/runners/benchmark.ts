@@ -21,7 +21,7 @@ function createBenchmarkResult(name: string): BenchmarkResult {
     rank: 0,
     rme: 0,
     samples: [] as number[],
-  } as BenchmarkResult
+  } as any
 }
 
 async function runBenchmarkSuite(suite: Suite, runner: VitestRunner) {

@@ -32,7 +32,7 @@ Starting from 0.23.0, you can create your own package to extend Vitest environme
 ```ts
 import type { Environment } from 'vitest'
 
-export default <Environment>{
+export default {
   name: 'custom',
   setup() {
     // custom setup
@@ -42,7 +42,7 @@ export default <Environment>{
       }
     }
   }
-}
+} satisfies Environment
 ```
 
 You also have access to default Vitest environments through `vitest/environments` entry:

@@ -52,7 +52,7 @@ export const fakeTimersDefaults = {
     'clearImmediate',
     'Date',
   ],
-} as NonNullable<UserConfig['fakeTimers']>
+} satisfies NonNullable<UserConfig['fakeTimers']>
 
 const config = {
   allowOnly: !isCI,
